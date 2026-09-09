@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-black.svg" alt="MIT License"></a>
-  <img src="https://img.shields.io/badge/macOS-15%2B-black.svg" alt="macOS 15+">
+  <img src="https://img.shields.io/badge/macOS-14%2B-black.svg" alt="macOS 14+">
   <img src="https://img.shields.io/badge/Swift-SwiftUI-black.svg" alt="Swift">
 </p>
 
@@ -26,8 +26,10 @@ https://github.com/user-attachments/assets/c417446c-f36d-480c-9f0b-1c78bbc54ecd
 ## Installation
 
 **Requirements:**
-- macOS 15 Sequoia or later
+- macOS 14 Sonoma or later
 - Apple Silicon or Intel Mac
+
+For macOS 14 support, [build this fork from source](#building-from-source). The download below is the upstream release.
 
 <a href="https://github.com/jonnyoo/glance/releases/latest/download/Glance.dmg" target="_self"><img width="200" src="https://github.com/user-attachments/assets/cdb8af97-1ee2-4669-b7cb-dcfb56c9dd61" alt="Download for Mac" /></a>
 
@@ -142,8 +144,8 @@ debug section should appear in the sidebar.
 
 ### Prerequisites
 
-- macOS 15+
-- Xcode 26+
+- Xcode 26+ and a macOS version supported by that Xcode release
+- Deployment target: macOS 14.0 (Sonoma)
 
 
 
@@ -151,12 +153,12 @@ debug section should appear in the sidebar.
 
 1. Clone repository:
   ```bash
-   git clone https://github.com/jonnyoo/glance.git
+   git clone https://github.com/LPFchan/glance.git
    cd glance
   ```
 2. Open in Xcode:
   ```bash
-   open glance/glance.xcodeproj
+   open glance.xcodeproj
   ```
 3. Run the project:
   - Click `run` or press `Cmd + R`.
