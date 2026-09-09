@@ -63,3 +63,10 @@ python tools/convert_arcface.py --onnx-path /path/to/w600k_mbf.onnx
 If you ever swap in a different ArcFace variant (e.g. `w600k_r50` via
 `--variant w600k_r50`), this contract stays the same — only the file size
 and latency change.
+
+
+## Keychain signing smoke test
+
+`keychain_selftest.swift` exercises the app's real `KeychainManager` with unique temporary accounts. It verifies a save/read round trip, creation of a user-presence-protected item, refusal to read that item without authentication, and deletion of the temporary items. It does not request Touch ID or read existing credentials.
+
+Compile it together with `glance/KeychainManager.swift` using Swift 6.2+. The executable must run inside an app bundle with the same bundle identifier, generated signing entitlements, development signing identity, and embedded provisioning profile as the app being checked. A bare or ad-hoc-signed executable cannot validate the protected Keychain path.

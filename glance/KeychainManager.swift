@@ -35,6 +35,8 @@ enum KeychainError: LocalizedError {
     }
 }
 
+// Use the data protection Keychain for every operation so reads and deletes
+// address the same store as items created with user-presence access control.
 enum KeychainManager {
     nonisolated static let service = "com.jonathan.glance"
 
@@ -42,6 +44,7 @@ enum KeychainManager {
     nonisolated static func exists(account: String) -> Bool {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
+            kSecUseDataProtectionKeychain as String: true,
             kSecAttrService as String: service,
             kSecAttrAccount as String: account,
             kSecMatchLimit as String: kSecMatchLimitOne
@@ -57,6 +60,7 @@ enum KeychainManager {
     nonisolated static func read(account: String, context: LAContext? = nil) throws -> Data {
         var query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
+            kSecUseDataProtectionKeychain as String: true,
             kSecAttrService as String: service,
             kSecAttrAccount as String: account,
             kSecReturnData as String: true,
@@ -87,6 +91,7 @@ enum KeychainManager {
     nonisolated static func save(account: String, data: Data, accessControl: SecAccessControl? = nil) throws {
         let deleteQuery: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
+            kSecUseDataProtectionKeychain as String: true,
             kSecAttrService as String: service,
             kSecAttrAccount as String: account
         ]
@@ -94,6 +99,7 @@ enum KeychainManager {
 
         var addQuery: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
+            kSecUseDataProtectionKeychain as String: true,
             kSecAttrService as String: service,
             kSecAttrAccount as String: account,
             kSecValueData as String: data
@@ -111,6 +117,7 @@ enum KeychainManager {
     nonisolated static func delete(account: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
+            kSecUseDataProtectionKeychain as String: true,
             kSecAttrService as String: service,
             kSecAttrAccount as String: account
         ]

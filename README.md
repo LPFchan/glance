@@ -160,8 +160,11 @@ debug section should appear in the sidebar.
   ```bash
    open glance.xcodeproj
   ```
-3. Run the project:
+3. In the `glance` target's **Signing & Capabilities**, select your Apple Development team, enable automatic signing, and set a unique bundle identifier that belongs to your team.
+4. Run the project:
   - Click `run` or press `Cmd + R`.
+
+The Touch ID-protected Keychain requires a signed app with a provisioning profile authorizing its Keychain access group. Keep the generated entitlements and embedded profile when installing a build; an unsigned or ad-hoc-signed build cannot complete enrollment.
 
 
 
