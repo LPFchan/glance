@@ -61,7 +61,7 @@ Open the `.dmg` file and drag Glance to `/Applications`, then open it.
 | **Face unlock** | Triggers on wake, on lock, or on pressing space at the lock screen. Pick any combination. |
 | **Multiple identities** | Enroll several people, or several versions of yourself — with glasses, a beard, different lighting. Toggle any of them off without deleting. |
 | **Liveness checks** | Watches for the motion and reflections that separate a real face from a photo. *Light* or *Heavy* strictness, or off. |
-| **Notch UI** | A closed pill that expands into a scan animation with success and failure states. Hover to retry — or turn animations off entirely and Glance stays invisible. |
+| **Notch UI** | A closed pill that expands into a scan animation with success and failure states. Hover to retry — or turn animations off entirely and Glance stays invisible. Clicks outside the visible popup pass through to the window underneath. |
 | **Camera & display** | Choose which camera to use, including different cameras for the built-in display vs. an external monitor. |
 | **Auto-locking sessions** | The Touch ID session re-locks itself after an idle period you choose, so an unattended Mac doesn't stay authorized forever. |
 | **Trackpad haptics** | Hovering over the notch will trigger haptics |
